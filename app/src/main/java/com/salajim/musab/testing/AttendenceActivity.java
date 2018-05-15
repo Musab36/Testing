@@ -1,5 +1,6 @@
 package com.salajim.musab.testing;
 
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -14,8 +15,12 @@ import butterknife.ButterKnife;
 public class AttendenceActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.present)
     Button mPresent;
-    @Bind(R.id.late) Button mLate;
-    @Bind(R.id.apsent) Button mApsent;
+    @Bind(R.id.late)
+    Button mLate;
+    @Bind(R.id.apsent)
+    Button mApsent;
+
+    android.support.v7.app.ActionBar toolbar;
 
 
     @Override
@@ -24,6 +29,9 @@ public class AttendenceActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_attendence);
         ButterKnife.bind(this);
 
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Attendence");
+
         mPresent.setOnClickListener(this);
         mLate.setOnClickListener(this);
         mApsent.setOnClickListener(this);
@@ -31,14 +39,15 @@ public class AttendenceActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        Fragment fragment;
-        if(view == mPresent) {
+        if (view == mPresent) {
             mPresent.setBackgroundColor(getResources().getColor(R.color.red));
 
-            fragment = new PresentFragment();
+            Fragment firstFragment;
+            firstFragment = new PresentFragment();
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
+            ft.replace(R.id.container, firstFragment);
+            ft.addToBackStack(null);
             ft.commit();
         } else {
             mPresent.setBackgroundColor(getResources().getColor(R.color.bg));
@@ -46,11 +55,12 @@ public class AttendenceActivity extends AppCompatActivity implements View.OnClic
         if (view == mLate) {
             mLate.setBackgroundColor(getResources().getColor(R.color.red));
 
-
-            fragment = new LateFragment();
+            Fragment secondFragment;
+            secondFragment = new LateFragment();
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
+            ft.replace(R.id.container, secondFragment);
+            ft.addToBackStack(null);
             ft.commit();
         } else {
             mLate.setBackgroundColor(getResources().getColor(R.color.bg));
@@ -58,42 +68,16 @@ public class AttendenceActivity extends AppCompatActivity implements View.OnClic
         if (view == mApsent) {
             mApsent.setBackgroundColor(getResources().getColor(R.color.red));
 
-            fragment = new AbsentFragment();
+            Fragment thirdFragment;
+            thirdFragment = new AbsentFragment();
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
+            ft.replace(R.id.container, thirdFragment);
+            ft.addToBackStack(null);
             ft.commit();
         } else {
             mApsent.setBackgroundColor(getResources().getColor(R.color.bg));
         }
 
     }
-
-    /*
-    public void changeFragment(View view) {
-        Fragment fragment;
-
-        if(view == findViewById(R.id.present)) {
-            fragment = new PresentFragment();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
-            ft.commit();
-        }
-        if(view == findViewById(R.id.late)) {
-            fragment = new LateFragment();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
-            ft.commit();
-        }
-        if(view == findViewById(R.id.apsent)) {
-            fragment = new AbsentFragment();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragments, fragment);
-            ft.commit();
-        }
-    }
-    */
 }

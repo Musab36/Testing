@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".AttendenceActivity">
 
     <Button
@@ -37,7 +37,7 @@
         android:id="@+id/apsent"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="Apsent"
+        android:text="Absent"
         android:textAllCaps="false"
         android:background="@color/bg"
         android:layout_toRightOf="@+id/late"
@@ -48,10 +48,10 @@
         android:textStyle="bold"/>
 
     <fragment
-        android:id="@+id/fragments"
+        android:id="@+id/container"
         android:name="com.salajim.musab.testing.PresentFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/present"/>
 

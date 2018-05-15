@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +24,6 @@ public class PresentFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_present, container, false);
-        ButterKnife.bind(this, view);
 
         return view;
     }
