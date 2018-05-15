@@ -1,43 +1,39 @@
 package com.salajim.musab.testing;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private final String TAG = "MainActivity";
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
+    @Bind(R.id.attendence)
+    Button mAttendence;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        setupViewPager(mViewPager);
+        mAttendence.setOnClickListener(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        adapter.addFragment(new AttendenceFragment(), "Attendence");
-        adapter.addFragment(new AssignmentsFragments(), "Assignments");
-        adapter.addFragment(new CourcesFragment(), "Cources");
-        adapter.addFragment(new GradesFragment(), "Grades");
-        adapter.addFragment(new ScheduleFragment(), "Schedule");
-        adapter.addFragment(new BehaviorFragment(), "Behavior");
-
-        viewPager.setAdapter(adapter);
+    @Override
+    public void onClick(View v) {
+        if(v == mAttendence) {
+            Intent intent = new Intent(MainActivity.this, AttendenceActivity.class);
+            startActivity(intent);
+        }
     }
 
     // Inflating menus
