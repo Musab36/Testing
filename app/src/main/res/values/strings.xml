@@ -3,4 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="attendence">Attendence</string>
+    <string name="assignments">Assignments</string>
+    <string name="courses">Courses</string>
+    <string name="grades">Grades</string>
+    <string name="schedule">Schedule</string>
+    <string name="behavior">Behavior</string>
+    <string name="events">Events</string>
+    <string name="fees">Fees</string>
+    <string name="home">Home</string>
+    <string name="title_activity_attend">attendActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

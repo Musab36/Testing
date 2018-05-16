@@ -14,8 +14,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private final String TAG = "MainActivity";
-    @Bind(R.id.attendence)
-    Button mAttendence;
+    @Bind(R.id.attendence) Button mAttendence;
+    @Bind(R.id.assignments) Button mAssignments;
 
 
     @Override
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mAttendence.setOnClickListener(this);
+        mAssignments.setOnClickListener(this);
 
     }
 
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mAttendence) {
             Intent intent = new Intent(MainActivity.this, AttendenceActivity.class);
+            startActivity(intent);
+        }
+        if(v == mAssignments) {
+            Intent intent = new Intent(MainActivity.this, AssignmentsActivity.class);
             startActivity(intent);
         }
     }

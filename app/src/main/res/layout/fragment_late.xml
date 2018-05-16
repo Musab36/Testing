@@ -10,8 +10,9 @@
         android:id="@+id/cardOne"
         android:layout_width="400dp"
         android:layout_height="70dp"
-        card_view:cardBackgroundColor="@android:color/darker_gray"
-        card_view:cardCornerRadius="5dp">
+        card_view:cardBackgroundColor="@color/card_bg"
+        card_view:cardCornerRadius="7dp"
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -67,6 +68,71 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardTwo"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        card_view:cardBackgroundColor="@color/card_bg"
+        android:layout_below="@+id/cardOne"
+        card_view:cardCornerRadius="7dp"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dayTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Day"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/absentDay2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dayTwo"
+                    android:text="Thur"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:paddingTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/dayTwoTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/dayTwoArrival"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dayTwoTime"
+                    android:layout_alignParentRight="true"
+                    android:text="9:00 Am"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:paddingTop="5dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
 
 
 </RelativeLayout>
