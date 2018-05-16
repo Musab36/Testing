@@ -18,6 +18,10 @@
         android:title="Settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_logout"
+        android:title="Log Out"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_white_24dp"
         android:title="Share App"

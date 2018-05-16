@@ -16,7 +16,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String TAG = "MainActivity";
     @Bind(R.id.attendence) Button mAttendence;
     @Bind(R.id.assignments) Button mAssignments;
+    @Bind(R.id.courses) Button mCourses;
+    @Bind(R.id.grades) Button mGrades;
+    @Bind(R.id.schedule) Button mSchedule;
+    @Bind(R.id.events) Button mEvents;
+    @Bind(R.id.behavior) Button mBehavior;
+    @Bind({R.id.fees}) Button mFees;
 
+    android.support.v7.app.ActionBar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("School Managment");
+
         mAttendence.setOnClickListener(this);
         mAssignments.setOnClickListener(this);
+        mCourses.setOnClickListener(this);
+        mGrades.setOnClickListener(this);
+        mSchedule.setOnClickListener(this);
+        mEvents.setOnClickListener(this);
+        mBehavior.setOnClickListener(this);
+        mFees.setOnClickListener(this);
 
     }
 
@@ -37,6 +53,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v == mAssignments) {
             Intent intent = new Intent(MainActivity.this, AssignmentsActivity.class);
+            startActivity(intent);
+        }
+        if (v == mCourses) {
+            Intent intent = new Intent(MainActivity.this, CoursesActivity.class);
+            startActivity(intent);
+        }
+        if(v == mGrades) {
+            Intent intent = new Intent(MainActivity.this, GradesActivity.class);
+            startActivity(intent);
+        }
+        if(v == mSchedule) {
+            Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+            startActivity(intent);
+        }
+        if(v == mBehavior) {
+            Intent intent = new Intent(MainActivity.this, BehaviorActivity.class);
+            startActivity(intent);
+        }
+        if(v == mEvents) {
+            Intent intent = new Intent(MainActivity.this, EventsActivity.class);
+            startActivity(intent);
+        }
+        if(v == mFees) {
+            Intent intent = new Intent(MainActivity.this, FeesActivity.class);
             startActivity(intent);
         }
     }
